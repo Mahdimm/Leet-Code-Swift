@@ -94,3 +94,32 @@ secondNode4.next = secondNode5
 
 let test = addTwoNumbers(firstNode1, secondNode1)
 
+/*
+ 3. Longest Substring Without Repeating Characters
+*/
+
+func lengthOfLongestSubstring(_ s: String) -> Int {
+    guard s.count > 1 else {
+        return s.count
+    }
+
+    var length = 0
+    var substring = [Character]()
+
+    for char in s {
+        if substring.contains(char), let index = substring.firstIndex(of:char) {
+            length = max(length, substring.count)
+            substring.removeSubrange(0...index)
+        }
+        substring.append(char)
+    }
+
+    return max(length, substring.count)
+}
+
+//lengthOfLongestSubstring("abcabcbb")
+//lengthOfLongestSubstring("bbbbb")
+//lengthOfLongestSubstring("pwwkew")
+lengthOfLongestSubstring("au")
+lengthOfLongestSubstring("  ")
+lengthOfLongestSubstring("aab")
