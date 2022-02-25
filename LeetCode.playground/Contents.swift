@@ -123,3 +123,35 @@ func lengthOfLongestSubstring(_ s: String) -> Int {
 lengthOfLongestSubstring("au")
 lengthOfLongestSubstring("  ")
 lengthOfLongestSubstring("aab")
+
+/*
+ 4. Median of Two Sorted Arrays
+*/
+
+func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
+    var nums3 = nums1 + nums2
+    nums3 = nums3.sorted()
+    
+    
+    if nums3.count % 2 == 0 {
+        let middle = (nums3.count / 2) - 1
+        return Double(Double(nums3[middle] + nums3[middle + 1]) / 2.0)
+    } else {
+        let middle = nums3.count / 2
+        return Double(nums3[middle])
+    }
+}
+
+//let first = [-5, 3, 6, 12, 15]
+//let second = [-12, -10, -6, -3, 4, 10]
+///
+//let first = [2, 3, 5, 8]
+//let second = [10, 12, 14, 16, 18, 20]
+///
+//let first = [1,3]
+//let second = [2]
+///
+let first = [1,2]
+let second = [3,4]
+
+let final = findMedianSortedArrays(first, second)
